@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Track your Pill Intake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+  <script src="js/leaflet.js"></script>
+
+  <link rel="stylesheet" href="js\jquery-ui.css">
+  <!-- <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+  <script src="js/jquery-ui.js"></script>
+
+  <!-- Script for DB -->
+  <script type="text/javascript">
+    if (typeof(Storage) !== undefined) {
+      localStorage.setItem("name", "yash");
+      localStorage.setItem("work", "utm");
+      var myName = localStorage.getItem("name");
+      // alert("yash");
+    } else {
+      alert("but why?");
+    }
+
+    db = window.openDatabase("myPillDB", "1.0", "Simple Demo", 2 * 1024 * 1024);
+    db.transaction(createDB, errorCB, successCB);
+
+    function createDB(tx) {
+      tx.executeSql('CREATE TABLE IF NOT EXISTS pill(id INT, title TEXT, date_taken TEXT, quantity TEXT)');
+    }
+
+    function errorCB(err) {
+      alert("SQL Error: " + err.code);
+    }
+
+    function successCB() {
+      // alert("Database & Table Created");
+    }
+
+    // <------------------>
+    function submitForm() {
+      db.transaction(insertDB, errorCB);
+      return false;
+    }
+
+    function insertDB(tx) {
+      var title_c = $("[name='title']").val();
+      var date_taken_c = $("[name='date_taken']").val();
+      var quantity_c = $("[name='quantity']").val();
+      var sql = 'INSERT INTO pill (title, date_taken, quantity) VALUES (?,?,?)';
+      tx.executeSql(sql, [title_c, date_taken_c, quantity_c], successQueryDB, errorCB);
+    }
+
+    function successQueryDB(tx) {
+      // alert("Insert Successful");
+      tx.executeSql('SELECT * FROM pill', [], renderListCB, errorCB)
+    }
+
+    function renderListCB(tx, results) {
+      var htmlString = ' ';
+      var len = results.rows.length;
+      for (var i = 0; i < len; i++) {
+        htmlString += '<li>'+"Date Taken: "+ results.rows.item(i).date_taken +'<br>'+"Pill Name: "+ results.rows.item(i).title +'<br>' +"Quantity: "+ results.rows.item(i).quantity +'</li>';
+      }
+      $('#resultList').html(htmlString);
+      $('#resultList').listview('refresh');
+    }
+
+    function submitForm() {
+      db.transaction(insertDB, errorCB);
+      $.mobile.changePage("#pagetwo", {
+        reverse: false,
+        transition: "slide"
+      });
+      return false;
+    }
+
+    //<------------------->
+    document.addEventListener("deviceready", onDeviceReady, false);
+    var db;
+
+    function onDeviceReady() {
+
+      // alert("device ready");
+
+    }
+    // date picker
+    $(function() {
+      $("#datepicker-1").datepicker();
+    });
+  </script>
+
+
+</head>
+
+<body onLoad="javascript:init();">
+  <!--- Page 1 --------------------------------------->
+  <div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+      <h2 id="panelnav">Navigation</h2>
+      <div id="menu">
+      <p><a href="index.html" data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="stats.html" data-ajax="false" class="ui-btn" id="nav-link">Teen Pregnancy in Mauritius</a></p>
+      <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="birthControl.html" data-ajax="false" class="ui-btn" id="nav-link">Birth Control</a></p>
+      <p><a href="birth_control_tracking.html" data-ajax="false" class="ui-btn" id="nav-link">Track Pill History</a></p>
+      <p><a href="help_centers.html" data-ajax="false" class="ui-btn" id="nav-link">Help Centers</a></p>
+      <p><a href="projects.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="media.html" data-ajax="false" class="ui-btn" id="nav-link">Educational Videos</a></p>
+      <!-- <p><a href="template.html" data-ajax="false" class="ui-btn" id="nav-link">Template</a></p> -->
+    </div></div>
+
+
+    <div id="header_bar" data-role="header">
+      <h1 id="header_title">Track your Birth Control Intakes</h1>
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+      <a href="index.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+
+    </div>
+    <!-- Header Page 1 End -->
+    <div data-role="main" class="ui-content">
+      <p style="text-align:justify;">Birth control is a way for men and women to prevent pregnancy. There are many different methods of birth control, including hormonal contraception such as "the pill."</p>
+<p>Here, you can track if you've taken your pills correctly and you can view your pill intake history.</p>
+      <form method="post" onSubmit="return submitForm()">
+        <label class="ui-accessible">Pill Name:</label><input name="title" type="text" placeholder="Pill Name" data-clear-btn="true" />
+        <label class="ui-accessible">Date Taken:</label><input name="date_taken" type="text" id="datepicker-1" placeholder="Select Pill Intake Date" />
+        <fieldset class="ui-field-contain">
+          <label for="quantity">Number of Pills Taken:</label>
+          <select name="quantity" id="tablet">
+<option value="1/2 tablet">1/2 tablet</option>
+<option value="1 tablet">1 tablet</option>
+<option value="1.5 tablets">1.5 tablets</option>
+<option value="2 tablets">2 tablets</option>
+</select>
+        </fieldset>
+        <input type="submit" value="Record & View" />
+        <input type="submit" value="View History" />
+      </form>
+    </div>
+
+    <!-- Footer Page 1 -->
+    <div data-role="footer" style="bottom:0; position:absolute; width:100%">
+      <h2></h2>
+    </div>
+  </div>
+  <!-- Footer Page 1 End -->
+
+  <div data-role="page" id="pagetwo">
+    <div data-role="header">
+      <h1>Pill History</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+
+      <div id="output">
+        <ul data-role="listview" id="resultList"></ul>
+      </div>
+
+    </div>
+
+    <div data-role="footer">
+      <h1></h1>
+    </div>
+  </div>
+
+</body>
+
+</html>

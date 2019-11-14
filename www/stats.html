@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Statistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+  <script src="js/leaflet.js"></script>
+
+<script type="text/javascript">
+</script>
+
+</head>
+
+<body onLoad="javascript:init();">
+  <!--- Page 1 --------------------------------------->
+  <div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+      <h2 id="panelnav">Navigation</h2>
+      <div id="menu">
+      <p><a href="index.html" data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="stats.html" data-ajax="false" class="ui-btn" id="nav-link">Teen Pregnancy in Mauritius</a></p>
+      <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="birthControl.html" data-ajax="false" class="ui-btn" id="nav-link">Birth Control</a></p>
+      <p><a href="birth_control_tracking.html" data-ajax="false" class="ui-btn" id="nav-link">Track Pill History</a></p>
+      <p><a href="help_centers.html" data-ajax="false" class="ui-btn" id="nav-link">Help Centers</a></p>
+      <p><a href="projects.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="media.html" data-ajax="false" class="ui-btn" id="nav-link">Educational Videos</a></p>
+      <!-- <p><a href="template.html" data-ajax="false" class="ui-btn" id="nav-link">Template</a></p> -->
+    </div></div>
+
+
+    <div id="header_bar" data-role="header">
+      <h1>Statistics</h1>
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+      <a href="index.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+
+    </div>
+    <!-- Header Page 1 End -->
+    <div data-role="main" class="ui-content">
+<h3>Statistics are alarming!</h3>
+<p>You can see how much teenage regnancy has increased in Mauritius:</p>
+<p><img src="images\pie.png" alt="pie" style="margin-left:25px;"></p>
+
+      <div data-role="collapsible">
+        <h1>Teenage Pregnancy in Mauritian Society</h1>
+        <p style="text-align:justify;">Most countries have an “age of consent” for sex of 16 or 18, under which it is illegal for
+          young people to engage in sexual activities. It is however generally agreed that the number
+          of teenage pregnancy in the modern society is increasing at an alarming rate.
+          The Mauritian society is also experiencing this rise as this argument is buttressed
+          by the 107 cases of teenage pregnancy recoded during the short time span of January 2016
+          to July 2016. The majority of the victims are between 12 and 15 years old.</p>
+      </div>
+
+      <div data-role="collapsible">
+        <h1>Causes of Teenage Pregnancy in Mauritius</h1>
+        <p style="text-align:justify;">Education is a big word in itself,
+        and is considered as the most prioritized factor to promote individual growth.
+        It is thus indeed a cause of concern when that very same education fails to meet
+        that goal. In Mauritius, our educational system is elitist, and adventures only in the
+        academic fields, and amidst this, such a huge social problem as teenage pregnancy is being ignored.</p>
+      </div>
+
+      <div data-role="collapsible">
+        <h1>What is the Mauritian government done so far?</h1>
+        <p style="text-align:justify;">Over the past few years, the Ministry of Education has shown a readiness to introduce
+        sex education in schools but this idea is always ruled out, being subject to controversies.
+        According to Dr Ravhee Bholah, Sex Education is crucial in schools:
+        “Students must have proper understanding of their own bodies. This is necessary for
+        diverse reasons: an increase incidence of sexually transmitted infection (HIV/AIDS),
+        an increase in teenage pregnancy, increased prevalence of other diseases (cervical cancer and breast cancer).
+        It is also important for the youth to know how to deal with unintended pregnancy
+        and be aware of the different types and use of contraceptives."</p>
+      </div>
+    </div>
+
+  </div>
+  <!-- Footer Page 1 End -->
+
+
+</body>
+</html>

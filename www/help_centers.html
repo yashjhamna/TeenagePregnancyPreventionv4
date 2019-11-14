@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Help Centers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+  <script src="js/leaflet.js"></script>
+
+</head>
+
+<body onLoad="javascript:init(); L.Map.invalidateSize();">
+  <!--- Page 1 --------------------------------------->
+  <div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+      <h2 id="panelnav">Navigation</h2>
+      <div id="menu">
+      <p><a href="index.html" data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="stats.html" data-ajax="false" class="ui-btn" id="nav-link">Teen Pregnancy in Mauritius</a></p>
+      <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="birthControl.html" data-ajax="false" class="ui-btn" id="nav-link">Birth Control</a></p>
+      <p><a href="birth_control_tracking.html" data-ajax="false" class="ui-btn" id="nav-link">Track Pill History</a></p>
+      <p><a href="help_centers.html" data-ajax="false" class="ui-btn" id="nav-link">Help Centers</a></p>
+      <p><a href="projects.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="media.html" data-ajax="false" class="ui-btn" id="nav-link">Educational Videos</a></p>
+      <!-- <p><a href="template.html" data-ajax="false" class="ui-btn" id="nav-link">Template</a></p> -->
+    </div></div>
+
+
+    <div id="header_bar" data-role="header">
+      <h1 id="header_title">Help Centers</h1>
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+      <a href="index.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+
+    </div>
+    <!-- Header Page 1 End -->
+    <div data-role="main" class="ui-content">
+      <div>
+        <p>This map shows help centers where you can seek help. Rest assured, you can visit them anonymous and under full confidentiality:</p>
+      </div>
+      <div id="map" style="height: 600px"></div>
+    </div>
+
+    <!-- Footer Page 1 -->
+    <div data-role="footer">
+      <h2>Powered by OpenStreetMap</h2>
+    </div>
+  </div>
+  <!-- Footer Page 1 End -->
+
+
+</body>
+
+<script language="javascript">
+  function init() {
+    var greenIcon = L.icon({
+      iconUrl: 'images/pointer.png',
+      position: 'fixed',
+
+      // shadowUrl: 'leaf-shadow.png',
+
+      iconSize: [40, 45], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+      shadowAnchor: [4, 62], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var map = new L.Map('map');
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(map);
+    map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
+
+    var london = new L.LatLng(-20.16527900, 57.4963800);
+    map.setView([-20.16527900, 57.4963800], 10);
+
+
+    //adding pop up on marker
+
+    L.marker([-20.16527900, 57.4963800], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.2532, 57.5848], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.0140, 57.5842], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.2770, 57.3692], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.1965, 57.7280], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.4936, 57.3792], {
+      icon: greenIcon
+    }).addTo(map);
+    L.marker([-20.4124, 57.7076], {
+      icon: greenIcon
+    }).addTo(map);
+
+
+    //adding pop ups on markers
+    var popup = L.popup()
+        .setLatLng([-20.16527900, 57.4963800])
+        .setContent("<strong> PORT LOUIS </strong> <br> 09.00-17.00 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.2532,57.5848])
+        .setContent("<strong>MOKA</strong><br>09.00-16.00 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.0140,57.5842])
+        .setContent("<strong>GRAND BAIE</strong><br>09.00-16.30 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.2770,57.3692])
+        .setContent("<strong>FLIC EN FLAC</strong><br>09.00-16.00 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.1965,57.7280])
+        .setContent("<strong>CENTRE DE FLACQ</strong><br>09.00-16.00 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.4936,57.3792])
+        .setContent("<strong>BAIE DU CAP</strong><br>09.00-16.30 (7/7)")
+        .addTo(map);
+
+    var popup = L.popup()
+        .setLatLng([-20.4124,57.7076])
+        .setContent("<strong>MAHEBOURG</strong><br>09.00-16.30 (7/7)")
+        .addTo(map);
+
+  }
+</script>
+
+</html>

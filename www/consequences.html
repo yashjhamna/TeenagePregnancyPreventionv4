@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Consequences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+  <script src="js/leaflet.js"></script>
+
+</head>
+
+<body onLoad="javascript:init();">
+  <!--- Page 1 --------------------------------------->
+  <div data-role="page" id="pageback" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+      <h2 id="panelnav">Navigation</h2>
+      <div id="menu">
+      <p><a href="index.html" data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="stats.html" data-ajax="false" class="ui-btn" id="nav-link">Teen Pregnancy in Mauritius</a></p>
+      <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="birthControl.html" data-ajax="false" class="ui-btn" id="nav-link">Birth Control</a></p>
+      <p><a href="birth_control_tracking.html" data-ajax="false" class="ui-btn" id="nav-link">Track Pill History</a></p>
+      <p><a href="help_centers.html" data-ajax="false" class="ui-btn" id="nav-link">Help Centers</a></p>
+      <p><a href="projects.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="media.html" data-ajax="false" class="ui-btn" id="nav-link">Educational Videos</a></p>
+      <!-- <p><a href="template.html" data-ajax="false" class="ui-btn" id="nav-link">Template</a></p> -->
+    </div></div>
+    <!-- Header Page 1-->
+    <div id="header_bar" data-role="header">
+			<h1 id="header_title">Consequences</h1>
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+      <a href="index.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+      <img src="images\effects_teenpreg.gif" style="width:100%;">
+</div>
+
+<div style="text-align:justify;" data-role="tabs" class="ui-content">
+<div data-role="navbar">
+    <ul>
+      <li><a href="#pagemental" data-ajax="false" data-icon="alert">Mental Health Conditions</a></li>
+      <li><a href="#pagehighrisk" data-ajax="false" data-icon="forbidden">High Risk Factors</a></li>
+      <li><a href="#pageotherfactors" data-ajax="false" data-icon="info">Other Factors</a></li>
+    </ul>
+  </div>
+
+  <div style="margin-right:10px;" id="pagemental">
+    <h4 style="color:#54959e; text-align:center;"> Mental health conditions to teen mothers</h4>
+    <p style="text-align:justify;">Teen moms might face a number of mental health conditions
+      related to childbirth and being a new mom.
+      Examples of these conditions include: </p>
+      <ul>
+        <li style="text-align:justify;">Baby blues: The “baby blues” are when a woman experiences symptoms
+          for one to two weeks after giving birth. These symptoms include mood swings,
+          anxiety, sadness, overwhelm, difficulty concentrating,
+          trouble eating, and difficulty sleeping.  </li> <br>
+
+        <li>  Depression: Being a teen mom is a risk factor for depression.
+           If a mom has a baby before 37 weeks or experiences complications,
+            depression risks can increase. </li> <br>
+
+        <li> Postpartum depression: Postpartum depression involves more severe and
+              significant symptoms than baby blues. Teen moms are twice as likely
+              to experience postpartum depression as their adult counterparts. Women
+              sometimes mistake postpartum depression for the baby blues. Baby blues
+              symptoms will go away after a few weeks. Depression symptoms won’t.</li>
+            </ul>
+  </div>
+
+  <div style="margin-right:10px;" id="pagehighrisk">
+    <h4 style="color:#54959e; text-align:center;" > High Risk Factors </h4>
+    <p>Teenage mothers are more likely to fall in demographic categories that
+      make the risk of mental illness higher. These risk factors include:  </p>
+
+      <ul>
+        <li>Having parents with low education levels  </li>
+          <li>A history of child abuse  </li>
+            <li>Living in chaotic and unstable home environments </li>
+              <li>Limited social networks   </li>
+                <li>Living in low-income communities  </li>
+              </ul>
+  </div>
+
+  <div style="margin-right:10px;" id="pageotherfactors">
+    <h4 style="color:#54959e; text-align:center;"> Other Factors </h4>
+    <ul>
+      <li>Finance  </li>
+      <p> In almost all cases, the teen moms do not have adequate
+        finance for them inclusive of their Baby. This occurs mostly
+        in cases where the teenage moms are left alone on their own
+        with the responsibility of their child without the support of a father</p>
+        <li>Physical Health </li>
+          <p>There is a high risk of physical health conditions that
+            can happen to teen moms like preeclampsia, anemia,
+            Sexually Transmitted Diseases (SDT), premature delivery, delivering at low birth weight</p>
+            </ul>
+  </div>
+
+<a href="#pagechild" id="btnchild" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="pop">Impact to the Child</a>
+</div>
+
+<!-- <div class="footer_bar" data-role="footer">
+  <h2>Footer</h2>
+</div> -->
+</div>
+
+<div data-role="page" id="pagechild" data-theme="b">
+
+
+    <div data-role="panel" id="myPanel">
+      <h2>Navigation</h2>
+      <p><a href="index.html"  data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="Page_About.html" data-ajax="false"class="ui-btn" id="nav-link">About Teen Pregnancy</a></p>
+        <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="Page_Project.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="Page_Parent.html" data-ajax="false" class="ui-btn" id="nav-link">Parent Resources</a></p>
+      <p><a href="Page_HealthCare.html" data-ajax="false" class="ui-btn" id="nav-link">Health Care Providers</a></p>
+        <p><a href="Page_News.html" data-ajax="false" class="ui-btn" id="nav-link">News </a></p>
+      <p><a href="Page_Media.html" data-ajax="false" class="ui-btn" id="nav-link">For Teens</a></p>
+    </div>
+
+
+    <div id="header_bar" data-role="header">
+			<h1 id="header_title">Consequences</h1>
+</div>
+
+
+<div data-role="main" class="ui-content">
+
+    <h4 style="color:#54959e; text-align:center;">Impacts to the Child</h4>
+  <ul>
+    <li>Greater risk for lower birth weight and infant mortality  </li>
+    <li> Less prepared to enter kindergarten</li>
+    <li> Rely more heavily on publicly funded health care</li>
+    <li> Are more likely to be incarcerated at some time during adolescence </li>
+    <li> Are more likely to drop out of high school</li>
+    <li> Are more likely to be unemployed or underemployed as a young adult</li>
+          </ul>
+
+            <img src="images/child.jpg" style="width:100%;">
+
+          <a href="#pageback" id="btncons" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slide">Back to Consequence</a>
+</div>
+
+<!-- <div data-role="footer">
+  <h2>Footer</h2>
+</div> -->
+</div>
+
+</body>
+</html>

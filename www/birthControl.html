@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Birth Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.5.js"></script>
+  <script src="cordova.js"></script>
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="leaflet/leaflet.ie.css" /><![endif]-->
+  <script src="js/leaflet.js"></script>
+
+</head>
+
+<body onLoad="javascript:init();">
+  <!--- Page 1 --------------------------------------->
+  <div data-role="page" id="pageone" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+      <h2 id="panelnav">Navigation</h2>
+      <div id="menu">
+      <p><a href="index.html" data-ajax="false" class="ui-btn" id="nav-link">Home</a></p>
+      <p><a href="stats.html" data-ajax="false" class="ui-btn" id="nav-link">Teen Pregnancy in Mauritius</a></p>
+      <p><a href="consequences.html" data-ajax="false" class="ui-btn" id="nav-link">Consequences</a></p>
+      <p><a href="birthControl.html" data-ajax="false" class="ui-btn" id="nav-link">Birth Control</a></p>
+      <p><a href="birth_control_tracking.html" data-ajax="false" class="ui-btn" id="nav-link">Track Pill History</a></p>
+      <p><a href="help_centers.html" data-ajax="false" class="ui-btn" id="nav-link">Help Centers</a></p>
+      <p><a href="projects.html" data-ajax="false" class="ui-btn" id="nav-link">Projects and Initiatives</a></p>
+      <p><a href="media.html" data-ajax="false" class="ui-btn" id="nav-link">Educational Videos</a></p>
+      <!-- <p><a href="template.html" data-ajax="false" class="ui-btn" id="nav-link">Template</a></p> -->
+    </div></div>
+
+
+    <div id="header_bar" data-role="header">
+      <h1 id="header_title">Birth Control</h1>
+      <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext"></a>
+      <a href="index.html" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+
+    </div>
+    <!-- Header Page 1 End -->
+    <div data-role="main" class="ui-content">
+      <img src="images/birthcontrol.jpg" style="width:100%;">
+      <p>This sections illustrates and details every birth control method:</p>
+      <div data-role="collapsible">
+        <h4>Vaginal Suppositories or Foam</h4>
+        <img src="images/prevention1.jpg" style="width:100%; border-radius:25px;">
+<p>Effectiveness: perfect use: 82% Typical: 71%</p>
+<p>Advantages: easy to use, no hormonal side effects, over the counter</p>
+<p>Disadvantages: no protection from STIs, can cause irritation, can be messy</p>
+      </div>
+
+      <div data-role="collapsible">
+        <h4>Condoms</h4>
+        <img src="images/prevention2.jpg" style="width:100%; border-radius:25px;">
+<p>Effectiveness: perfect use: 92% Typical: 85%</p>
+<p>Advantages: helps protect against STIs, no hormonal side effects, over the counter</p>
+<p>Disadvantages: must be put on correctly before having sex.</p>
+      </div>
+
+      <div data-role="collapsible">
+  <h4>Diaphragm</h4>
+  <img src="images/prevention3.jpg" style="width:100%; border-radius:25px;">
+<p>Effectiveness: perfect use: 94% Typical: 84%</p>
+<p>Advantages: does not affect menstrual cycles</p>
+<p>Disadvantages: no protection from STIs, spermicides can increase risk of STIs.</p>
+</div>
+
+<div data-role="collapsible">
+  <h4>Pill</h4>
+  <img src="images/prevention4.jpg" style="width:100%; border-radius:25px;">
+<p>Effectiveness: perfect use: 99.7% Typical: 92%</p>
+<p>Advantages: no interruption of sex</p>
+<p>Disadvantages: no protection from STIs, can be difficult to use, possible side effects.</p>
+</div>
+
+<div data-role="collapsible">
+  <h4>Abstinence</h4>
+  <img src="images/prevention5.jpg" style="width:100%; border-radius:25px;">
+<p>Effectiveness: 100% in preventing pregnancy & STIs</p>
+<p>Disadvantage: difficult to abstain for long periods of time</p>
+</div>
+
+    </div>
+
+
+
+</body>
+</html>
